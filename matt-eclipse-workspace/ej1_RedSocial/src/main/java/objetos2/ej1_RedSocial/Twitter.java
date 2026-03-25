@@ -30,7 +30,7 @@ public class Twitter {
 	Los tweets son instancias de objetos, entonces la eliminacion literal depende del GC cuando no existan referencias al tweet.
 	Si los retweets siguen referenciando, no se van a borrar, entonces:
 	 1) eliminas cualquier referencia hacia un tweet del usuario que se va a elimnar
-	 3) (no aplicable) eliminarias el tweet fisicamente porque es un archivo almacenado en una BD.
+	 2) (no aplicable) eliminarias el tweet fisicamente porque es un archivo almacenado en una BD.
 	*/
 	
 	private void deleteTweetsReferencesFrom(User u) {
@@ -41,7 +41,7 @@ public class Twitter {
 	public boolean deleteUser(User u) {
 		
 		this.deleteTweetsReferencesFrom(u);
-		u.deleteMyTweets();
+		u.deleteMyTweets(); // innecesario porque ya se borraron todas las referencias a sus tweets.Entonces cuando borras al usuario ya perdes las unicas referencias que quedaban. 
 		return users.remove(u);
 	}
 }

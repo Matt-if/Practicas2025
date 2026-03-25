@@ -1,0 +1,37 @@
+@startuml
+
+/' Se usa Double Dispatch '/
+
+abstract class Jugada {
+	+ <<abstract>> jugarVs(j: Jugada) : String;
+	+ <<abstract>> jugarVsPiedra( : String;
+	+ <<abstract>> jugarVsPapel() : String;
+	+ <<abstract>> jugarVsTijera() : String;
+}
+
+class Piedra {
+	+ jugarVs() : String;
+	+ jugarVsPiedra() : String;
+	+ jugarVsPapel() : String;
+	+ jugarVsTijera() : String;
+}
+
+class Papel {
+	+ jugarVs() : String;
+	+ jugarVsPiedra() : String;
+	+ jugarVsPapel() : String;
+	+ jugarVsTijera() : String;
+}
+
+class Tijera {
+	+ jugarVs() : String;
+	+ jugarVsPiedra() : String;
+	+ jugarVsPapel() : String;
+	+ jugarVsTijera() : String;
+}
+
+Papel --|> Jugada
+Piedra --|> Jugada
+Tijera --|> Jugada
+
+@enduml

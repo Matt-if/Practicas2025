@@ -28,9 +28,10 @@ public class User {
 	}
 	
 	//No supe como hacerlo con streams
+	//Hay envidia de atts, corregir si la idea es por aca.
 	public void deleteMyRetweetsOriginatedFrom(User u) {
 		for (Tweet t: tweets) {
-			if (u.getTweets().contains(t.getOrigin())) {
+			if (u.getTweets().contains(t.getOrigin())) { 
 				this.tweets.remove(t);
 			}
 		}
