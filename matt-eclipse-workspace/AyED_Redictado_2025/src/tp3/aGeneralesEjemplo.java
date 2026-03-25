@@ -4,38 +4,38 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class aGeneralesEjemplo {
-	public static GeneralTree<String> aGeneralStrings_1 () {
-		GeneralTree<String> a1 = new GeneralTree<String>("1");
-		List<GeneralTree<String>> children2 = new LinkedList<GeneralTree<String>>();
-		children2.add(new GeneralTree<String>("21"));
-		children2.add(new GeneralTree<String>("22"));
-		children2.add(new GeneralTree<String>("23"));
-		GeneralTree<String> a2 = new GeneralTree<String>("2", children2);
-		List<GeneralTree<String>> children3 = new LinkedList<GeneralTree<String>>();
-		children3.add(new GeneralTree<String>("31"));
-		children3.add(new GeneralTree<String>("32"));
-		GeneralTree<String> a3 = new GeneralTree<String>("3", children3);
-		List<GeneralTree<String>> childen = new LinkedList<GeneralTree<String>>();
+	public static GeneralTreeViejo<String> aGeneralStrings_1 () {
+		GeneralTreeViejo<String> a1 = new GeneralTreeViejo<String>("1");
+		List<GeneralTreeViejo<String>> children2 = new LinkedList<GeneralTreeViejo<String>>();
+		children2.add(new GeneralTreeViejo<String>("21"));
+		children2.add(new GeneralTreeViejo<String>("22"));
+		children2.add(new GeneralTreeViejo<String>("23"));
+		GeneralTreeViejo<String> a2 = new GeneralTreeViejo<String>("2", children2);
+		List<GeneralTreeViejo<String>> children3 = new LinkedList<GeneralTreeViejo<String>>();
+		children3.add(new GeneralTreeViejo<String>("31"));
+		children3.add(new GeneralTreeViejo<String>("32"));
+		GeneralTreeViejo<String> a3 = new GeneralTreeViejo<String>("3", children3);
+		List<GeneralTreeViejo<String>> childen = new LinkedList<GeneralTreeViejo<String>>();
 		childen.add(a1);childen.add(a2);childen.add(a3);
-		GeneralTree<String> a = new GeneralTree<String>("0", childen);
+		GeneralTreeViejo<String> a = new GeneralTreeViejo<String>("0", childen);
 		
 		return a;
 	}
 	
-	public static GeneralTree<Integer> aGeneralIntegers_1 () {
-		GeneralTree<Integer> a1 = new GeneralTree<Integer>(1);
-		List<GeneralTree<Integer>> children2 = new LinkedList<GeneralTree<Integer>>();
-		children2.add(new GeneralTree<Integer>(21));
-		children2.add(new GeneralTree<Integer>(22));
-		children2.add(new GeneralTree<Integer>(23));
-		GeneralTree<Integer> a2 = new GeneralTree<Integer>(2, children2);
-		List<GeneralTree<Integer>> children3 = new LinkedList<GeneralTree<Integer>>();
-		children3.add(new GeneralTree<Integer>(31));
-		children3.add(new GeneralTree<Integer>(32));
-		GeneralTree<Integer> a3 = new GeneralTree<Integer>(3, children3);
-		List<GeneralTree<Integer>> childen = new LinkedList<GeneralTree<Integer>>();
+	public static GeneralTreeViejo<Integer> aGeneralIntegers_1 () {
+		GeneralTreeViejo<Integer> a1 = new GeneralTreeViejo<Integer>(1);
+		List<GeneralTreeViejo<Integer>> children2 = new LinkedList<GeneralTreeViejo<Integer>>();
+		children2.add(new GeneralTreeViejo<Integer>(21));
+		children2.add(new GeneralTreeViejo<Integer>(22));
+		children2.add(new GeneralTreeViejo<Integer>(23));
+		GeneralTreeViejo<Integer> a2 = new GeneralTreeViejo<Integer>(2, children2);
+		List<GeneralTreeViejo<Integer>> children3 = new LinkedList<GeneralTreeViejo<Integer>>();
+		children3.add(new GeneralTreeViejo<Integer>(31));
+		children3.add(new GeneralTreeViejo<Integer>(32));
+		GeneralTreeViejo<Integer> a3 = new GeneralTreeViejo<Integer>(3, children3);
+		List<GeneralTreeViejo<Integer>> childen = new LinkedList<GeneralTreeViejo<Integer>>();
 		childen.add(a1);childen.add(a2);childen.add(a3);
-		GeneralTree<Integer> a = new GeneralTree<Integer>(0, childen);
+		GeneralTreeViejo<Integer> a = new GeneralTreeViejo<Integer>(0, childen);
 		
 		return a;
 	}
@@ -48,33 +48,33 @@ public class aGeneralesEjemplo {
 	 * 							  /  |  \
 	 * 							 10  15  99
 	 */
-	public static GeneralTree<Integer> aGeneralIntegers_2 () {
+	public static GeneralTreeViejo<Integer> aGeneralIntegers_2 () {
 		
-		List<GeneralTree<Integer>> children = new LinkedList<GeneralTree<Integer>>();
-		GeneralTree<Integer> a = new GeneralTree<Integer>(0, children);
+		List<GeneralTreeViejo<Integer>> children = new LinkedList<GeneralTreeViejo<Integer>>();
+		GeneralTreeViejo<Integer> a = new GeneralTreeViejo<Integer>(0, children);
 
-		GeneralTree<Integer> h1 = new GeneralTree<Integer>(1);
+		GeneralTreeViejo<Integer> h1 = new GeneralTreeViejo<Integer>(1);
 		
-		List<GeneralTree<Integer>> children2 = new LinkedList<GeneralTree<Integer>>();
-		GeneralTree<Integer> h2 = new GeneralTree<Integer>(2, children2);
+		List<GeneralTreeViejo<Integer>> children2 = new LinkedList<GeneralTreeViejo<Integer>>();
+		GeneralTreeViejo<Integer> h2 = new GeneralTreeViejo<Integer>(2, children2);
 		
-		List<GeneralTree<Integer>> children3 = new LinkedList<GeneralTree<Integer>>();
-		GeneralTree<Integer> h3 = new GeneralTree<Integer>(3, children3);
+		List<GeneralTreeViejo<Integer>> children3 = new LinkedList<GeneralTreeViejo<Integer>>();
+		GeneralTreeViejo<Integer> h3 = new GeneralTreeViejo<Integer>(3, children3);
 		
 		children.add(h1);children.add(h2);children.add(h3);
 		
-		List<GeneralTree<Integer>> children31 = new LinkedList<GeneralTree<Integer>>();
-		GeneralTree<Integer> h31 = new GeneralTree<Integer>(31, children31);
-		children31.add(new GeneralTree<Integer>(10));
-		children31.add(new GeneralTree<Integer>(15));
-		children31.add(new GeneralTree<Integer>(99));
+		List<GeneralTreeViejo<Integer>> children31 = new LinkedList<GeneralTreeViejo<Integer>>();
+		GeneralTreeViejo<Integer> h31 = new GeneralTreeViejo<Integer>(31, children31);
+		children31.add(new GeneralTreeViejo<Integer>(10));
+		children31.add(new GeneralTreeViejo<Integer>(15));
+		children31.add(new GeneralTreeViejo<Integer>(99));
 		
-		children2.add(new GeneralTree<Integer>(21));
-		children2.add(new GeneralTree<Integer>(22));
-		children2.add(new GeneralTree<Integer>(23));
+		children2.add(new GeneralTreeViejo<Integer>(21));
+		children2.add(new GeneralTreeViejo<Integer>(22));
+		children2.add(new GeneralTreeViejo<Integer>(23));
 		
 		children3.add(h31);
-		children3.add(new GeneralTree<Integer>(32));
+		children3.add(new GeneralTreeViejo<Integer>(32));
 
 		return a;
 	}
@@ -87,37 +87,37 @@ public class aGeneralesEjemplo {
 	 * 							  	  /  |  \
 	 * 							 	10  15  99
 	 */
-	public static GeneralTree<Integer> aGeneralAbeto () {
+	public static GeneralTreeViejo<Integer> aGeneralAbeto () {
 		
-		List<GeneralTree<Integer>> children = new LinkedList<GeneralTree<Integer>>();
-		GeneralTree<Integer> a = new GeneralTree<Integer>(0, children);
+		List<GeneralTreeViejo<Integer>> children = new LinkedList<GeneralTreeViejo<Integer>>();
+		GeneralTreeViejo<Integer> a = new GeneralTreeViejo<Integer>(0, children);
 
-		GeneralTree<Integer> h1 = new GeneralTree<Integer>(1);
+		GeneralTreeViejo<Integer> h1 = new GeneralTreeViejo<Integer>(1);
 		
-		List<GeneralTree<Integer>> children2 = new LinkedList<GeneralTree<Integer>>();
-		GeneralTree<Integer> h2 = new GeneralTree<Integer>(2, children2);
+		List<GeneralTreeViejo<Integer>> children2 = new LinkedList<GeneralTreeViejo<Integer>>();
+		GeneralTreeViejo<Integer> h2 = new GeneralTreeViejo<Integer>(2, children2);
 		
-		List<GeneralTree<Integer>> children3 = new LinkedList<GeneralTree<Integer>>();
-		GeneralTree<Integer> h3 = new GeneralTree<Integer>(3, children3);
+		List<GeneralTreeViejo<Integer>> children3 = new LinkedList<GeneralTreeViejo<Integer>>();
+		GeneralTreeViejo<Integer> h3 = new GeneralTreeViejo<Integer>(3, children3);
 		
 		children.add(h1);children.add(h2);children.add(h3);
-		children.add(new GeneralTree<Integer>(4));
-		children.add(new GeneralTree<Integer>(5));
+		children.add(new GeneralTreeViejo<Integer>(4));
+		children.add(new GeneralTreeViejo<Integer>(5));
 		
-		List<GeneralTree<Integer>> children31 = new LinkedList<GeneralTree<Integer>>();
-		GeneralTree<Integer> h31 = new GeneralTree<Integer>(31, children31);
-		children31.add(new GeneralTree<Integer>(10));
-		children31.add(new GeneralTree<Integer>(15));
-		children31.add(new GeneralTree<Integer>(99));
+		List<GeneralTreeViejo<Integer>> children31 = new LinkedList<GeneralTreeViejo<Integer>>();
+		GeneralTreeViejo<Integer> h31 = new GeneralTreeViejo<Integer>(31, children31);
+		children31.add(new GeneralTreeViejo<Integer>(10));
+		children31.add(new GeneralTreeViejo<Integer>(15));
+		children31.add(new GeneralTreeViejo<Integer>(99));
 		
-		children2.add(new GeneralTree<Integer>(21));
-		children2.add(new GeneralTree<Integer>(22));
-		children2.add(new GeneralTree<Integer>(23));
+		children2.add(new GeneralTreeViejo<Integer>(21));
+		children2.add(new GeneralTreeViejo<Integer>(22));
+		children2.add(new GeneralTreeViejo<Integer>(23));
 		
 		children3.add(h31);
-		children3.add(new GeneralTree<Integer>(32));
-		children3.add(new GeneralTree<Integer>(33));
-		children3.add(new GeneralTree<Integer>(34));
+		children3.add(new GeneralTreeViejo<Integer>(32));
+		children3.add(new GeneralTreeViejo<Integer>(33));
+		children3.add(new GeneralTreeViejo<Integer>(34));
 
 		return a;
 	}
@@ -131,33 +131,33 @@ public class aGeneralesEjemplo {
 	 * 							  /  |  \
 	 * 							 10  15  0
 	 */
-	public static GeneralTree<Integer> aDeSeleccion () {
+	public static GeneralTreeViejo<Integer> aDeSeleccion () {
 		
-		List<GeneralTree<Integer>> children = new LinkedList<GeneralTree<Integer>>();
-		GeneralTree<Integer> a = new GeneralTree<Integer>(0, children);
+		List<GeneralTreeViejo<Integer>> children = new LinkedList<GeneralTreeViejo<Integer>>();
+		GeneralTreeViejo<Integer> a = new GeneralTreeViejo<Integer>(0, children);
 
-		GeneralTree<Integer> h1 = new GeneralTree<Integer>(1);
+		GeneralTreeViejo<Integer> h1 = new GeneralTreeViejo<Integer>(1);
 		
-		List<GeneralTree<Integer>> children2 = new LinkedList<GeneralTree<Integer>>();
-		GeneralTree<Integer> h2 = new GeneralTree<Integer>(2, children2);
+		List<GeneralTreeViejo<Integer>> children2 = new LinkedList<GeneralTreeViejo<Integer>>();
+		GeneralTreeViejo<Integer> h2 = new GeneralTreeViejo<Integer>(2, children2);
 		
-		List<GeneralTree<Integer>> children3 = new LinkedList<GeneralTree<Integer>>();
-		GeneralTree<Integer> h3 = new GeneralTree<Integer>(0, children3);
+		List<GeneralTreeViejo<Integer>> children3 = new LinkedList<GeneralTreeViejo<Integer>>();
+		GeneralTreeViejo<Integer> h3 = new GeneralTreeViejo<Integer>(0, children3);
 		
 		children.add(h1);children.add(h2);children.add(h3);
 		
-		List<GeneralTree<Integer>> children31 = new LinkedList<GeneralTree<Integer>>();
-		GeneralTree<Integer> h31 = new GeneralTree<Integer>(0, children31);
-		children31.add(new GeneralTree<Integer>(10));
-		children31.add(new GeneralTree<Integer>(15));
-		children31.add(new GeneralTree<Integer>(0));
+		List<GeneralTreeViejo<Integer>> children31 = new LinkedList<GeneralTreeViejo<Integer>>();
+		GeneralTreeViejo<Integer> h31 = new GeneralTreeViejo<Integer>(0, children31);
+		children31.add(new GeneralTreeViejo<Integer>(10));
+		children31.add(new GeneralTreeViejo<Integer>(15));
+		children31.add(new GeneralTreeViejo<Integer>(0));
 		
-		children2.add(new GeneralTree<Integer>(2));
-		children2.add(new GeneralTree<Integer>(22));
-		children2.add(new GeneralTree<Integer>(23));
+		children2.add(new GeneralTreeViejo<Integer>(2));
+		children2.add(new GeneralTreeViejo<Integer>(22));
+		children2.add(new GeneralTreeViejo<Integer>(23));
 		
 		children3.add(h31);
-		children3.add(new GeneralTree<Integer>(32));
+		children3.add(new GeneralTreeViejo<Integer>(32));
 
 		return a;
 	}
@@ -170,33 +170,33 @@ public class aGeneralesEjemplo {
 	 * 							  /  |  \
 	 * 							 1  1    0
 	 */
-	public static GeneralTree<Integer> aDeCerosYUnos () {
+	public static GeneralTreeViejo<Integer> aDeCerosYUnos () {
 		
-		List<GeneralTree<Integer>> children = new LinkedList<GeneralTree<Integer>>();
-		GeneralTree<Integer> a = new GeneralTree<Integer>(0, children);
+		List<GeneralTreeViejo<Integer>> children = new LinkedList<GeneralTreeViejo<Integer>>();
+		GeneralTreeViejo<Integer> a = new GeneralTreeViejo<Integer>(0, children);
 
-		GeneralTree<Integer> h1 = new GeneralTree<Integer>(1);
+		GeneralTreeViejo<Integer> h1 = new GeneralTreeViejo<Integer>(1);
 		
-		List<GeneralTree<Integer>> children2 = new LinkedList<GeneralTree<Integer>>();
-		GeneralTree<Integer> h2 = new GeneralTree<Integer>(1, children2);
+		List<GeneralTreeViejo<Integer>> children2 = new LinkedList<GeneralTreeViejo<Integer>>();
+		GeneralTreeViejo<Integer> h2 = new GeneralTreeViejo<Integer>(1, children2);
 		
-		List<GeneralTree<Integer>> children3 = new LinkedList<GeneralTree<Integer>>();
-		GeneralTree<Integer> h3 = new GeneralTree<Integer>(1, children3);
+		List<GeneralTreeViejo<Integer>> children3 = new LinkedList<GeneralTreeViejo<Integer>>();
+		GeneralTreeViejo<Integer> h3 = new GeneralTreeViejo<Integer>(1, children3);
 		
 		children.add(h1);children.add(h2);children.add(h3);
 		
-		List<GeneralTree<Integer>> children31 = new LinkedList<GeneralTree<Integer>>();
-		GeneralTree<Integer> h31 = new GeneralTree<Integer>(1, children31);
-		children31.add(new GeneralTree<Integer>(1));
-		children31.add(new GeneralTree<Integer>(1));
-		children31.add(new GeneralTree<Integer>(0));
+		List<GeneralTreeViejo<Integer>> children31 = new LinkedList<GeneralTreeViejo<Integer>>();
+		GeneralTreeViejo<Integer> h31 = new GeneralTreeViejo<Integer>(1, children31);
+		children31.add(new GeneralTreeViejo<Integer>(1));
+		children31.add(new GeneralTreeViejo<Integer>(1));
+		children31.add(new GeneralTreeViejo<Integer>(0));
 		
-		children2.add(new GeneralTree<Integer>(1));
-		children2.add(new GeneralTree<Integer>(0));
-		children2.add(new GeneralTree<Integer>(0));
+		children2.add(new GeneralTreeViejo<Integer>(1));
+		children2.add(new GeneralTreeViejo<Integer>(0));
+		children2.add(new GeneralTreeViejo<Integer>(0));
 		
 		children3.add(h31);
-		children3.add(new GeneralTree<Integer>(1));
+		children3.add(new GeneralTreeViejo<Integer>(1));
 
 		return a;
 	}

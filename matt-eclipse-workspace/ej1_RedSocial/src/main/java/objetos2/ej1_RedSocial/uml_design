@@ -1,0 +1,40 @@
+@startuml
+
+/' Cuando instanciar un objeto conlleva limitaciones, las mismas se controlan en el constructor, no ?'/
+
+class Twitter {
+	+ <<create>> Twitter()
+	
+	- userExists (screenName: String) : boolean
+	+ createUser(screenName: String)
+	+ deleteUser(user: User)
+	- deleteTweetsReferencesFrom(user: User)
+}
+
+/' El usuario instancia el tweet usando uno de los constructores provistos y se agrega a su lista de tweets'/
+class User {
+	- screenName: String
+
+	+ <<create>> User (screenName: String)
+	+ tweet(content: String) : Boolean
+	+ reTweet(oldTweet: Tweet) : Boolean
+	+ deleteMyTweets()
+	+ deleteMyRetweetsOriginatedFrom(user: User)
+}
+
+class Tweet {
+	- content: String
+	
+	+ <<create>> Tweet (content: String)
+	+ <<create>> Tweet (origin: Tweet)
+}
+
+
+User --> "tweets *" Tweet
+
+Tweet --> "origin 0..1" Tweet
+
+Twitter --> "users *" User
+
+
+@enduml
