@@ -14,27 +14,27 @@ public class User {
 	}
 	
 	public boolean tweet(String content) throws Exception {
-		return tweets.add(new Tweet(content));
+		return tweets.add(new Tweet(content, this));
 	}
 	
 	public boolean reTweet(Tweet oldTweet) {
 		return tweets.add(oldTweet);
 	}
 	
-	// tweets.clear() solo borraria las referencias en la lista del usuario pero los tweets seguirian existiendo.
-	// y podrian seguir siendo referenciados por 1+ retweets (tweets con origin != null).
+	//recibir por parametro a User para elminar... ?
+	public boolean delete() {
+		
+		return true;
+	}
+	
 	public void deleteMyTweets() {
 		this.tweets.clear();
 	}
 	
 	//No supe como hacerlo con streams
 	//Hay envidia de atts, corregir si la idea es por aca.
-	public void deleteMyRetweetsOriginatedFrom(User u) {
-		for (Tweet t: tweets) {
-			if (u.getTweets().contains(t.getOrigin())) { 
-				this.tweets.remove(t);
-			}
-		}
+	public void deleteRetweetsOriginatedFromMe() {
+		
 	}
 
 	public String getScreenName() {

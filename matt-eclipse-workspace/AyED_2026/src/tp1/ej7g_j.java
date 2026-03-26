@@ -63,17 +63,28 @@ public class ej7g_j {
 		
 		ArrayList <Integer> res = new ArrayList<Integer>();
 		
-		while (i < lista1.size() && j < lista2.size()) {
-			if (lista1.get(i) < lista2.get(j)) {
-				res.add(lista1.get(i));
-				i++;
-			}
-			else {
+		while (i < lista1.size() || j < lista2.size()) {
+			
+			if(i == lista1.size()) {
 				res.add(lista2.get(j));
 				j++;
-			}			
+			} else if(j == lista2.size()) {
+				res.add(lista1.get(i));
+				i++;
+			} else {
+				if (lista1.get(i) < lista2.get(j)) {
+					res.add(lista1.get(i));
+					i++;
+				}
+				else {
+					res.add(lista2.get(j));
+					j++;
+				}		
+			}
 		}
 
+		/* Al haber usado los ifs para controlar los indices de cada lista, me ahorro de implementar
+		estos for para terminar de recorrer.
 		for (;i < lista1.size(); i++) {
 			res.add(lista1.get(i));
 		}
@@ -81,6 +92,7 @@ public class ej7g_j {
 		for (;j < lista2.size(); j++) {
 			res.add(lista2.get(j));
 		}
+		*/
 		
 		return res;
 		

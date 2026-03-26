@@ -17,7 +17,7 @@ public class ej7 {
 		
 		List<Estudiante> est2  = new ArrayList<Estudiante>(est);
 		//List<Estudiante> est2  = new ArrayList<Estudiante>();		
-		//est2.addAll(est);
+		//est2.addAll(est); //esta va a ser la mas comun de usar para copiar una lista.
 		
 		//obviamente se imprime lo mismo
 		System.out.println(est.toString());
