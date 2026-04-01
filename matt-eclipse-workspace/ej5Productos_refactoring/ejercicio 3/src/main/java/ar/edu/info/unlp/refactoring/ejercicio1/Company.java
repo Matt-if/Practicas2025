@@ -16,4 +16,10 @@ public class Company {
     public double promotionRate() {
         return this.promotionRate;
     }
+    
+    // Nuevo, producto de move method desde CarRenta.
+    public double getFinalPrice () {
+    	return this.price() * this.promotionRate();
+    }
+    
 }

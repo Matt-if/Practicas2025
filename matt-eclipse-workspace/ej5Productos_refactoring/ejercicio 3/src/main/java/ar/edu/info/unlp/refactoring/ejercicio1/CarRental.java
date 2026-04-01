@@ -1,10 +1,7 @@
 package ar.edu.info.unlp.refactoring.ejercicio1;
 
-import java.time.LocalDate;
-
 public class CarRental extends Product {
-    public double cost;
-    private TimePeriod timePeriod;
+    public double cost; //antes
     private Company company;
 
     public CarRental(double cost, TimePeriod timePeriod, Company company) {
@@ -13,19 +10,13 @@ public class CarRental extends Product {
         this.company = company;
     }
 
-    public LocalDate startDate() {
-        return this.timePeriod.start();
-    }
-
-    public LocalDate endDate() {
-        return this.timePeriod.end();
-    }
-
+    //modificado por hacer move method a Company
     public double price() {
-        return this.company.price() * this.company.promotionRate();
+        return this.company.getFinalPrice();
     }
 
     public double cost() {
         return this.cost;
     }
+    
 }
