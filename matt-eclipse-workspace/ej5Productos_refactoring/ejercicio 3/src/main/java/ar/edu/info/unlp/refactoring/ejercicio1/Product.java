@@ -5,6 +5,9 @@ import java.time.LocalDate;
 public class Product {
 	protected TimePeriod timePeriod;
 	
+	//agregar constructor
+	
+	
     protected LocalDate startDate() {
         return this.timePeriod.start();
     }
