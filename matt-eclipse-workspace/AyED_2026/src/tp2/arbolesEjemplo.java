@@ -4,7 +4,7 @@ public class arbolesEjemplo {
 	
 	/*
 	 *			   40
-	 *		25			78
+	 *		25			80
 	 * 10		32
 	 */
 	public static BinaryTree <Integer> arbol_Integers_A() {
@@ -15,13 +15,19 @@ public class arbolesEjemplo {
 		hijoIzquierdo.addLeftChild(hijoIzquierdoDe25);
 		
 		hijoIzquierdo.addRightChild(new BinaryTree<Integer>(32));
-		BinaryTree<Integer> hijoDerecho= new BinaryTree<Integer>(78);
+		BinaryTree<Integer> hijoDerecho= new BinaryTree<Integer>(80);
 		ab.addLeftChild(hijoIzquierdo);
 		ab.addRightChild(hijoDerecho);
 		
 		return ab;
 	}
 	
+	/*
+		 		   40
+		 	25			78
+		 10		32
+	  1
+	*/
 	public static BinaryTree <Integer> arbol_Integers_B() {
 		BinaryTree<Integer> ab = new BinaryTree<Integer>(40);
 		BinaryTree<Integer> hijoIzquierdo = new BinaryTree<Integer>(25);
@@ -43,6 +49,13 @@ public class arbolesEjemplo {
 		return ab;
 	}
 	
+
+	/*
+				   			40
+				  25					78
+			10			32
+		1		2
+	*/
 	public static BinaryTree <Integer> arbol_Integers_C() {
 		BinaryTree<Integer> ab = new BinaryTree<Integer>(40);
 		BinaryTree<Integer> hijoIzquierdo = new BinaryTree<Integer>(25);

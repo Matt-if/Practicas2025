@@ -25,7 +25,7 @@ class Socio {
 
 class VoorheesExporter [[java:objetos.dos.ej1Patrones_Biblioteca.VoorheesExporter]] {
 	-exportar(socio: Socio): String
-	+exportar(socios: List<Socio>): String
+	+exportar(socios: Socio [*]): String
 }
 
 Biblioteca --> "0..*" Socio

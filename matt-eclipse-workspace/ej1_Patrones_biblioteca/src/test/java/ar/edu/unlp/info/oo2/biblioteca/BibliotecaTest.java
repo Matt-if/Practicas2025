@@ -16,7 +16,7 @@ public class BibliotecaTest {
 	}
 	
 	@Test
-	void testFormato () {
+	void testExportarSocios () {
 		assertEquals(
 				"[\n"
 				+ "    {\n"

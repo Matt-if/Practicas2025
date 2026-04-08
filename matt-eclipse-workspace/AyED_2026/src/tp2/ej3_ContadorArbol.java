@@ -7,6 +7,13 @@ public class ej3_ContadorArbol {
 
 	BinaryTree<Integer> arbol;
 	
+	
+	
+	public ej3_ContadorArbol(BinaryTree<Integer> arbol) {
+		super();
+		this.arbol = arbol;
+	}
+
 	private void recorridoInOrden (List<Integer> lista, BinaryTree<Integer> ab) {
 		int dato = ab.getData();
 		
@@ -35,7 +42,8 @@ public class ej3_ContadorArbol {
 		
 		ArrayList<Integer> pares = new ArrayList<Integer>();
 		
-		recorridoInOrden(pares, this.arbol);
+		if (this.arbol != null && !this.arbol.isEmpty())
+			recorridoInOrden(pares, this.arbol);
 		
 		return pares;
 	}
@@ -49,6 +57,14 @@ public class ej3_ContadorArbol {
 	}
 	
 	public static void main (String [] args ) {
+		BinaryTree<Integer> arbol = new arbolesEjemplo().arbol_Integers_A();
 		
+		ej3_ContadorArbol ab = new ej3_ContadorArbol(arbol);
+		
+		List<Integer> lista = new ArrayList<Integer>();
+		
+		lista = ab.numerosParesInOrden();
+		
+		System.out.println(lista);
 	}
 }
