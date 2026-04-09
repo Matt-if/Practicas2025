@@ -5,7 +5,6 @@ public abstract class ArrayRing {
 	
 	public ArrayRing () {
 		this.idx = 0;
-	}
+	} 
 	
-	//metodo next
 }
