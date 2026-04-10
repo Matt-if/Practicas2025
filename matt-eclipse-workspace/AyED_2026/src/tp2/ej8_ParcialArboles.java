@@ -48,6 +48,40 @@ public class ej8_ParcialArboles {
 		}
 	}
 	
+	private boolean recorrido_v2 (BinaryTree<Integer> a1, BinaryTree<Integer> a2) {
+		
+		boolean esPref = true;
+		
+		if (a1.getData().equals(a2.getData())) {
+			
+			//sacarlo y probar
+			if (a1.isLeaf())
+				return true;
+			
+			if (a1.hasLeftChild() && !a2.hasLeftChild()) {
+				return false;
+				
+			}
+			
+			if (a1.hasRightChild() && !a2.hasRightChild()) {
+				return false;
+			}
+			
+			if (a1.hasLeftChild() && a2.hasLeftChild()) {
+				esPref = this.recorrido(a1.getLeftChild(), a2.getLeftChild());
+			}
+			
+			if (esPref && a1.hasRightChild() && a2.hasRightChild()) {
+					esPref = this.recorrido(a1.getRightChild(), a2.getRightChild());
+				}
+			return esPref;
+	
+		}
+		else {
+			return false;
+		}
+	}
+	
 	public boolean esPrefijo(BinaryTree<Integer> arbol1, BinaryTree<Integer> arbol2) {
 		
 		if (arbol1 != null && arbol2 != null) {
