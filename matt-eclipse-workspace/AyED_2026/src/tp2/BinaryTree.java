@@ -176,7 +176,7 @@ public class BinaryTree <T> {
 			this.getLeftChild().printInorden();
 		}
 		
-		System.out.println(this.getData());
+		System.out.print(this.getData() + " - ");
 		
 		if (this.hasRightChild()) {
 			this.getRightChild().printInorden();
