@@ -41,7 +41,36 @@ public class ej5_ProfundidadDeArbolBinario {
 	}
 	
 	// Version "clasica" con el algoritmo de la catedra, sin el for loop interno:
-	
+	public int sumaElementosProfundidad_clasico (int p) {
+		BinaryTree<Integer> temp;
+		Queue<BinaryTree<Integer>> cola = new Queue<BinaryTree<Integer>>();
+		int nivel = 0, suma = 0;
+		
+		cola.enqueue(this.arbol);
+		cola.enqueue(null);
+		
+		while (!cola.isEmpty() && nivel <= p) {
+			temp = cola.dequeue();
+				
+			if (temp != null) {
+				
+				if (nivel == p) 
+					suma+= temp.getData(); 
+				
+				if (temp.hasLeftChild()) 
+					cola.enqueue(temp.getLeftChild());
+				
+				if (temp.hasRightChild()) 
+					cola.enqueue(temp.getRightChild());
+			}
+			else if (!cola.isEmpty()) {
+				nivel++;
+				cola.enqueue(null);
+			}
+		}
+		
+		return suma;
+	}
 			
 	public static void main(String[] args) {
 		ej5_ProfundidadDeArbolBinario test = new ej5_ProfundidadDeArbolBinario(arbolesEjemplo.arbol_Integers_A());

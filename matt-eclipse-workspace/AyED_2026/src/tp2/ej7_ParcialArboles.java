@@ -58,7 +58,9 @@ public class ej7_ParcialArboles {
 		int arbolesUnicoHijo_izq = -1, arbolesUnicoHijo_der = -1;
 		
 		if (this.arbolito != null && !this.arbolito.isEmpty()) {
+			
 			BinaryTree<Integer> nodo = this.buscarNodo(this.arbolito, num);
+			
 			if (nodo != null) {
 				if (nodo.hasLeftChild()) {
 					arbolesUnicoHijo_izq = buscarArbolesConUnicoHijo(nodo.getLeftChild()); 

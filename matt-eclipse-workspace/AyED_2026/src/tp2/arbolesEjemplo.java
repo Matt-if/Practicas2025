@@ -4,7 +4,7 @@ public class arbolesEjemplo {
 	
 	/*
 	 *			   40
-	 *		25			80
+	 *		25			78
 	 * 10		32
 	 */
 	public static BinaryTree <Integer> arbol_Integers_A() {
@@ -15,7 +15,7 @@ public class arbolesEjemplo {
 		hijoIzquierdo.addLeftChild(hijoIzquierdoDe25);
 		
 		hijoIzquierdo.addRightChild(new BinaryTree<Integer>(32));
-		BinaryTree<Integer> hijoDerecho= new BinaryTree<Integer>(80);
+		BinaryTree<Integer> hijoDerecho= new BinaryTree<Integer>(78);
 		ab.addLeftChild(hijoIzquierdo);
 		ab.addRightChild(hijoDerecho);
 		

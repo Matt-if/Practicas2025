@@ -66,7 +66,7 @@ public class ej6_Tranformacion {
 	public static void main (String [] args) {
 		ej6_Tranformacion test = new ej6_Tranformacion(arbolesEjemplo.arbol_Integers_A());
 		
-		/* El arbol original que se manda:
+		/* El arbol original:
 		 *			   40
 		 *		25			80
 		 * 10		32
