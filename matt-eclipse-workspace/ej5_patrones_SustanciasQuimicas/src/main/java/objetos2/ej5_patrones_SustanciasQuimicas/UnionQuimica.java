@@ -10,8 +10,7 @@ public class UnionQuimica extends ElementoQuimico{
 	
 	public UnionQuimica(ElementoQuimico elem1, ElementoQuimico elem2) {
 		
-		// ???
-		// Es lo minimo que se me ocurre pero se puede hacer un metal a partir de otra cosa, no se.
+		// ??? Es lo minimo que se me ocurre.
 		this.metal = elem1.metal && elem2.metal;
 		
 		this.carga = elem1.carga + elem2.carga;
@@ -22,9 +21,7 @@ public class UnionQuimica extends ElementoQuimico{
 		
 	}
 	
-	// ???
-	// Como defino este comportamiento si no se que forman las combinaciones ?
-	// Lo unico que se me ocurrio es ver si hay al menos un elemento que no es metal y ya seria valida...
+	// ??? Lo unico que se me ocurrio es ver si hay al menos un elemento que no es metal y ya seria valida...
 	@Override
 	public boolean esValida() {
 		return elementos.stream()
