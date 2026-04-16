@@ -10,8 +10,7 @@ public class UnionQuimica extends ElementoQuimico{
 	
 	public UnionQuimica(ElementoQuimico elem1, ElementoQuimico elem2) {
 		
-		// ??? Es lo minimo que se me ocurre.
-		this.metal = elem1.metal && elem2.metal;
+		this.metal = elem1.metal || elem2.metal;
 		
 		this.carga = elem1.carga + elem2.carga;
 		this.pesoMolecular = elem1.pesoMolecular + elem2.pesoMolecular; 
@@ -21,23 +20,24 @@ public class UnionQuimica extends ElementoQuimico{
 		
 	}
 	
-	// ??? Lo unico que se me ocurrio es ver si hay al menos un elemento que no es metal y ya seria valida...
 	@Override
-	public boolean esValida() {
-		return elementos.stream()
-				.anyMatch(e -> !e.soyMetal());
+	public boolean esValida(ElementoQuimico elemNuevo) {
+		
+		return ! (this.soyMetal() && elemNuevo.soyMetal());
 	}
 
 	@Override
 	public boolean agregarElementoQuimico(ElementoQuimico elem) {
-		this.pesoMolecular += elem.pesoMolecular;
-		this.carga += elem.carga;
-		this.simbolo += elem.simbolo;
+
 		
-		// ???
-		this.metal = this.soyMetal() && elem.soyMetal();
+		if (this.esValida(elem)) {
+			this.pesoMolecular += elem.pesoMolecular;
+			this.carga += elem.carga;
+			this.simbolo += elem.simbolo;
+			return elementos.add(elem);
+		}
 		
-		return elementos.add(elem);
+		return false;
 	}
 	
 	@Override
@@ -46,20 +46,4 @@ public class UnionQuimica extends ElementoQuimico{
                 .map(ElementoQuimico::formula)
                 .collect(Collectors.joining());
 	}
-
-	/* INNECESARIO porque el peso ya esta calculado en la variable...
-	 * 
-	public Integer pesoMolecular() {
-		return elementos.stream()
-				.mapToInt(elem -> elem.pesoMolecular())
-				.sum();
-	}
-
-	// Idem pesoMolecular...
-	public Integer carga() {
-		return elementos.stream()
-				.mapToInt(elem -> elem.carga())
-				.sum();
-	}
-	*/
 }

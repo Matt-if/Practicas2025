@@ -6,13 +6,7 @@ public abstract class ElementoQuimico {
 	protected Integer pesoMolecular;
 	protected Integer carga;
 	protected Boolean metal;
-	
-	/*
-	public abstract String formula();
-	public abstract Integer pesoMolecular();
-	public abstract Integer carga();
-	public abstract boolean esValida();
-	*/
+
 	
 	public String formula() {
 		return this.simbolo;
@@ -26,7 +20,7 @@ public abstract class ElementoQuimico {
 		return this.carga;
 	}
 
-	public boolean esValida() {
+	public boolean esValida(ElementoQuimico e) {
 		return true;
 	}
 

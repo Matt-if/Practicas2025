@@ -9,28 +9,7 @@ public class Atomo extends ElementoQuimico {
 		this.metal = metal;
 	}
 
-	// al final, es necesario tener esta clase Atomo ?
-	/*
-	public String formula() {
-		return this.simbolo;
-	}
-
-	public Integer pesoMolecular() {
-		return this.pesoMolecular;
-	}
-
-	public Integer carga() {
-		return this.carga;
-	}
-
-	public boolean esValida() {
-		return true;
-	}
-	
-	@Override
-	public String toString () {
-		return this.formula();
-	}
-	*/
+	// al final, es necesario tener esta clase Atomo ? SII !!!
+	// para poder usar composite...
 	
 }
