@@ -81,23 +81,34 @@ public class arbolesEjemplo {
 	//Para testear ejercicio 9
 	/*
 	  			20
-	 		5		30
-	  -5 				-9
+	 		5		 	 30
+	  -5 		 	50	 	 -9
+	  				   4
+	 
+	 El nuevo arbol deberia ser:
+			 				( 20 | 20 ) 
+			( 25 | -15 ) 							( 50 | 10 ) 
+	( 20 | -10 ) 					( 100 | 20 ) 					( 41 | -39 ) 
+											( 104 | -46 ) 
 	 */
 	public static BinaryTree <Integer> arbol_Simple() {
-		BinaryTree<Integer> ab = new BinaryTree<Integer>(20);
-		BinaryTree<Integer> hijoIzquierdo = new BinaryTree<Integer>(5);
-		BinaryTree<Integer> hijoDerecho = new BinaryTree<Integer>(30);
+		BinaryTree<Integer> raiz = new BinaryTree<Integer>(20);
+		BinaryTree<Integer> hijoIzquierdoDeRaiz = new BinaryTree<Integer>(5);
+		BinaryTree<Integer> hijoDerechoDeRaiz = new BinaryTree<Integer>(30);
 		
 		BinaryTree<Integer> hijoIzquierdoDe5 = new BinaryTree<Integer>(-5);
-		hijoIzquierdo.addLeftChild(hijoIzquierdoDe5);
+		hijoIzquierdoDeRaiz.addLeftChild(hijoIzquierdoDe5);
 		
+		BinaryTree<Integer> hijoIzquierdoDe30 = new BinaryTree<Integer>(50);
 		BinaryTree<Integer> hijoDerechoDe30 = new BinaryTree<Integer>(-9);
-		hijoDerecho.addRightChild(hijoDerechoDe30);
-			
-		ab.addLeftChild(hijoIzquierdo);
-		ab.addRightChild(hijoDerecho);
+		hijoDerechoDeRaiz.addRightChild(hijoDerechoDe30);
+		hijoDerechoDeRaiz.addLeftChild(hijoIzquierdoDe30);
 		
-		return ab;
+		hijoIzquierdoDe30.addRightChild(new BinaryTree<Integer>(4));
+			
+		raiz.addLeftChild(hijoIzquierdoDeRaiz);
+		raiz.addRightChild(hijoDerechoDeRaiz);
+		
+		return raiz;
 	}
 }

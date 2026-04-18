@@ -14,6 +14,7 @@ public class ej6_Tranformacion {
 		hago los recorridos de los sub arboles B y C
 		A.setData(suma de recorrido B + C)
 	*/
+
 	
 	private BinaryTree<Integer> arbol;
 
