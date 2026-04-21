@@ -3,6 +3,8 @@ package tp3;
 import java.util.LinkedList;
 import java.util.List;
 
+import tp1.ejercicio8.Queue;
+
 public class GeneralTree<T>{
 
 	private T data;
@@ -57,35 +59,113 @@ public class GeneralTree<T>{
 			children.remove(child);
 	}
 	
-	// Metodos del ejercicio 2
+	// ====================== Recorridos simples ======================
 	
-	// Retorna una lista con los elementos impares del árbol “a” que sean mayores al valor “n” pasados como parámetros, recorrido en preorden.
-	public List<Integer> numerosImparesMayoresQuePreOrden (GeneralTree <Integer> a, Integer n) {
+	public void preOrder () {
+		System.out.println(this.getData());
+		
+		for (GeneralTree<T> child : this.getChildren()) {
+			child.preOrder();
+		}
+	}
+	
+	public void postOrder () {
+		
+		for (GeneralTree<T> child : this.getChildren()) {
+			child.postOrder();
+		}
+		
+		System.out.println(this.getData());
+	}
+	
+
+	public void inOrder () {
+			
+		if (this.hasChildren()) this.getChildren().get(0).inOrder();
+		
+		System.out.println(this.getData());
+		
+		for (int i=1; i < this.getChildren().size(); i++) {
+			this.getChildren().get(i).inOrder();
+		}
 		
 	}
 	
-	// retorna una lista con los elementos impares del árbol “a” que sean mayores al valor “n” pasados como parámetros, recorrido en inorden.
-	public List<Integer> numerosImparesMayoresQueInOrden (GeneralTree <Integer> a, Integer n) {
+	public void porNiveles() {
+		Queue<GeneralTree<T>> cola = new Queue<GeneralTree<T>>();
 		
+		GeneralTree<T> arbol_aux;
+		cola.enqueue(this);
+		cola.enqueue(null);
+		
+		
+		while (!cola.isEmpty()) {
+			arbol_aux = cola.dequeue();
+			
+			if (arbol_aux != null) {
+				
+				System.out.print(arbol_aux.getData() + "  ");
+				
+				if (arbol_aux.hasChildren()) {
+					for (GeneralTree<T> child: arbol_aux.getChildren()) {
+						cola.enqueue(child);
+					}
+				}
+			}
+			else {
+				if (!cola.isEmpty()) {
+					cola.enqueue(null);
+					System.out.println();
+			
+				}
+			}
+		}
 	}
 	
-	// Método que retorna una lista con los elementos impares del árbol “a” que sean mayores al valor “n” pasados como parámetros, recorrido en postorden.
-	public List<Integer> numerosImparesMayoresQuePostOrden (GeneralTree <Integer> a, Integer n) {
+	// =================================== Metodos del ejercicio 3 =================================== 
+
+	//Hay que recorrer todo el arbol y retornar manteniendo la profundidad del nodo mas profundo encontrado.
+	private int calcularAlturaDelArbol (int alturaActual) {
+		int maxProfundidadDeUnHijo = alturaActual, profundidadHijo;
 		
+		if (this.hasChildren()) {
+			alturaActual++;
+			for (GeneralTree<T> child : this.getChildren()) {
+				profundidadHijo = child.calcularAlturaDelArbol(alturaActual);
+				
+				if (profundidadHijo > maxProfundidadDeUnHijo)
+					maxProfundidadDeUnHijo = profundidadHijo;
+			}
+		}
+
+		return maxProfundidadDeUnHijo;
 	}
-	
-	// Método que retorna una lista con los elementos impares del árbol “a” que sean mayores al valor “n” pasados como parámetros, recorrido por niveles.
-	public List<Integer> numerosImparesMayoresQuePorNiveles(GeneralTree <Integer> a, Integer n) {
-		
-	}
-	
-	// b) Si ahora tuviera que implementar estos métodos en la clase GeneralTree<T>, ¿qué modificaciones haría tanto en la firma como en la implementación de los mismos?
-	
 	
 	// devuelve la altura del árbol, es decir, la longitud del camino más largo desde el nodo raíz hasta una hoja
-	public int altura() {	 
-			
-		return 0;
+	// el nodo siempre retorna la altura maxima encontrada hasta el inclusive, si cambia es porque la compare con max y es mayor.
+	
+	public int altura_versionRancia() {	 
+		
+		return calcularAlturaDelArbol(0);
+
+	}
+	
+	// Si es hoja: 0.
+	// Si no es hoja: 1 + la altura máxima de sus hijos.
+	public int altura() {
+	    if (this.isLeaf()) {
+	        return 0;
+	    }
+
+	    int alturaMax = 0;
+	    for (GeneralTree<T> child : this.getChildren()) {
+	        int alturaHijo = child.altura();
+	        if (alturaHijo > alturaMax) {
+	            alturaMax = alturaHijo;
+	        }
+	    }
+
+	    return alturaMax + 1;
 	}
 	
 	// devuelve la profundidad o nivel del dato en el árbol. El nivel de un nodo es la longitud del único camino de la raíz al nodo.

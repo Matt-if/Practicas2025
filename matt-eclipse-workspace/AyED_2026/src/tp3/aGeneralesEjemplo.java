@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class aGeneralesEjemplo {
+	
 	public static GeneralTree<String> aGeneralStrings_1 () {
 		GeneralTree<String> a1 = new GeneralTree<String>("1");
 		List<GeneralTree<String>> children2 = new LinkedList<GeneralTree<String>>();
