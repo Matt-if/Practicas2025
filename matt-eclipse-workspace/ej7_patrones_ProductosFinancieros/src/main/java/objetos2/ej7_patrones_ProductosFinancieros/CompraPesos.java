@@ -1,16 +1,14 @@
 package objetos2.ej7_patrones_ProductosFinancieros;
 
-public class CompraPesos extends ProductoFinanciero {
+public class CompraPesos implements ProductoFinanciero {
 
 	private double valorCompra;
 	
 	public CompraPesos(double valorCompra) {
-		super();
 		this.valorCompra = valorCompra;
 	}
 
-	@Override
-	public double retornoInversion() {
+	public double retornoInversion(double monto) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

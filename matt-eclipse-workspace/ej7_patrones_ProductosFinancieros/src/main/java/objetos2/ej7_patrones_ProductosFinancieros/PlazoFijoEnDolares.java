@@ -1,23 +1,18 @@
 package objetos2.ej7_patrones_ProductosFinancieros;
 
-public class PlazoFijoEnDolares extends ProductoFinanciero {
+public class PlazoFijoEnDolares implements ProductoFinanciero {
 
 	private int plazo;
 	private double interes;
 	
-	public PlazoFijoEnDolares(double monto, int plazo, double interes) {
-		this.monto = monto;
+	public PlazoFijoEnDolares(int plazo, double interes) {
 		this.plazo = plazo;
 		this.interes = interes;
 	}
 
-	public PlazoFijoEnDolares() {
-		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	public double retornoInversion() {
-		return monto * plazo * (interes/100);
+	public double retornoInversion(double monto) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

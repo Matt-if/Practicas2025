@@ -3,7 +3,7 @@ package objetos2.ej7_patrones_ProductosFinancieros;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductoCombinado extends ProductoFinanciero {
+public class ProductoCombinado implements ProductoFinanciero {
 
 	private List<ProductoFinanciero> productos;
 	
@@ -17,11 +17,9 @@ public class ProductoCombinado extends ProductoFinanciero {
 	}
 
 	@Override
-	public double retornoInversion() {
-		
-		return productos.stream()
-				.mapToDouble(p -> p.retornoInversion())
-				.sum();
+	public double retornoInversion(double monto) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

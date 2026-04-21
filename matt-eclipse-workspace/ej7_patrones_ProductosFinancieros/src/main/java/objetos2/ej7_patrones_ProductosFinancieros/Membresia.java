@@ -1,37 +1,35 @@
 package objetos2.ej7_patrones_ProductosFinancieros;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Membresia {
 	protected double tasaPlazoFijo;
 	protected int plazoMinimoDeDiasPlazoFijo, parkingMinimoDeHorasDeBonos;
 	
-	
-	// Este metodo dejaria de ser polimorfico si no se pueden recibir los montos por parametro.
-	protected ProductoFinanciero crearProducto1(double montoPesos, double montoDolares, double montoPFDolares, int plazoPF ) {
-		CompraDolares cd = new CompraDolares(montoPesos);
-		CompraPesos cp = new CompraPesos(montoDolares);
+	// ==== En la nueva solucion, esto va en Producto1 ====
+	protected ProductoCombinado crearProducto1(double valorPeso, double valorDolar, int plazoPF ) {
 		
-		// Si los nros van directamente no estaria mal ? ` PlazoFijoEnDolares pfd = new PlazoFijoEnDolares(200, 35, 5); `
-		PlazoFijoEnDolares pfd = null;
+		// para controloar la instanciacion es hacer esto o usar excepciones
 		if (plazoPF >= this.plazoMinimoDeDiasPlazoFijo) {
-			pfd = new PlazoFijoEnDolares(montoPFDolares, this.plazoMinimoDeDiasPlazoFijo, this.tasaPlazoFijo);
+			PlazoFijoEnDolares pfd = new PlazoFijoEnDolares(plazoPF, this.tasaPlazoFijo);
+			CompraDolares cd = new CompraDolares(valorPeso);
+			CompraPesos cp = new CompraPesos(valorDolar);
+			return new ProductoCombinado(List.of(cd, pfd, cp));
 		}
-		
-		return new ProductoCombinado(new ArrayList<ProductoFinanciero>(List.of(cd, pfd, cp)));
+		else return null;
+
 	}
 
-	//Es hacer lo mismo que en el 1 con los productos financieros indicados
-	protected ProductoFinanciero crearProducto2(double montoPesos, double montoDolares, double montoPFDolares, int plazoPF, double montoBono, int parking ) {
-		ProductoFinanciero producto1 = this.crearProducto1(montoPesos, montoDolares, montoPFDolares, plazoPF);
-		
-		CompraBonoBajoRiesgo bono = null;
+	// ==== En la nueva solucion, esto va en Producto2 ====
+	//Es hacer lo mismo que en el 1 + el bono.
+	protected ProductoCombinado crearProducto2(double valorPeso, double valorDolar, int plazoPF, int parking ) {
+
 		if (parking >= this.parkingMinimoDeHorasDeBonos) {
-			bono = new CompraBonoBajoRiesgo(montoBono, parking);
+			ProductoFinanciero producto1 = this.crearProducto1(valorPeso, valorDolar, plazoPF);
+			CompraBonoBajoRiesgo bono = new CompraBonoBajoRiesgo(parking);
+			return new ProductoCombinado((List.of(bono, producto1)));
 		}
+		else return null;
 		
-		return new ProductoCombinado(new ArrayList<ProductoFinanciero>(List.of(bono, producto1)));
 	}
 
 }

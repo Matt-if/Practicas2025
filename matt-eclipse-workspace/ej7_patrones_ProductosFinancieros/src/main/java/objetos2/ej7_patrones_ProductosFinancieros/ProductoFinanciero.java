@@ -1,8 +1,6 @@
 package objetos2.ej7_patrones_ProductosFinancieros;
 
-public abstract class ProductoFinanciero {
+public interface ProductoFinanciero {
 
-	protected double monto;
-
-	public abstract double retornoInversion ();
+	public double retornoInversion (double monto);
 }
