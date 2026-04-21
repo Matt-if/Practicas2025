@@ -4,6 +4,7 @@ import java.util.List;
 
 public class Producto1 implements ProductoFactory {
 
+	// Cual es la forma correcta de que recib los parametros ?
 	protected ProductoCombinado crearProducto() {
 		
 		// para controloar la instanciacion es hacer esto o usar excepciones
