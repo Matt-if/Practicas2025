@@ -48,6 +48,9 @@ public class aGeneralesEjemplo {
 	 * 				21   22   23 	31    32
 	 * 							  /  |  \
 	 * 							 10  15  99
+	 * 
+	 * prom nivel 2 = 25.8
+	 * prom nivel 3 = 41.33
 	 */
 	public static GeneralTree<Integer> aGeneralIntegers_2 () {
 		

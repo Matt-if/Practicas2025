@@ -1,5 +1,6 @@
 package tp3;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -121,6 +122,13 @@ public class GeneralTree<T>{
 			}
 		}
 	}
+	// =================================== ejercicio 5 =================================== 
+	
+	// devuelve true si el valor “a” es ancestro del valor “b”.
+	public boolean esAncestro(T a, T b) {
+		
+		return false;
+	}
 	
 	// =================================== Metodos del ejercicio 3 =================================== 
 
@@ -150,16 +158,18 @@ public class GeneralTree<T>{
 
 	}
 	
+	//Version razonable
 	// Si es hoja: 0.
 	// Si no es hoja: 1 + la altura máxima de sus hijos.
 	public int altura() {
-	    if (this.isLeaf()) {
+		int alturaMax = 0, alturaHijo;
+		
+		if (this.isLeaf()) {
 	        return 0;
 	    }
 
-	    int alturaMax = 0;
 	    for (GeneralTree<T> child : this.getChildren()) {
-	        int alturaHijo = child.altura();
+	        alturaHijo = child.altura();
 	        if (alturaHijo > alturaMax) {
 	            alturaMax = alturaHijo;
 	        }
@@ -168,14 +178,58 @@ public class GeneralTree<T>{
 	    return alturaMax + 1;
 	}
 	
+	private int nivelDe(T dato, int nivelAct) {
+		int nivelDeDatoBuscado = -1;
+		
+		if (dato.equals(this.getData()))
+			nivelDeDatoBuscado = nivelAct;
+		else {
+			if (this.hasChildren()) {
+				Iterator<GeneralTree<T>> children = this.getChildren().iterator();
+				while (nivelDeDatoBuscado == -1 && children.hasNext()) {
+					nivelDeDatoBuscado = children.next().nivelDe(dato, nivelAct + 1);
+				}
+			}
+		}
+		
+		return nivelDeDatoBuscado;
+	}
+	
 	// devuelve la profundidad o nivel del dato en el árbol. El nivel de un nodo es la longitud del único camino de la raíz al nodo.
 	public int nivel(T dato){
-		return 0;
+		return nivelDe(dato, 0);
 	  }
 
-	// a amplitud (ancho) de un árbol se define como la cantidad de nodos que se encuentran en el nivel que posee la mayor cantidad de nodos.
+	// La amplitud (ancho) de un árbol se define como la cantidad de nodos que se encuentran en el nivel que posee la mayor cantidad de nodos.
 	public int ancho(){
+		GeneralTree<T> ab;
+		Queue<GeneralTree<T>> cola = new Queue<GeneralTree<T>>();
+		cola.enqueue(this);
+		cola.enqueue(null);
 		
-		return 0;
+		int anchoMax = -1, anchoAct = 0;
+		
+		while (!cola.isEmpty()) {
+			ab = cola.dequeue();
+			
+			if (ab != null) {
+				anchoAct++;
+				for (GeneralTree<T> child: ab.getChildren()) {
+					cola.enqueue(child);
+				}
+			}
+			
+			else {
+				// si esto lo dejas dentro del otro if, no se procesa el ultimo nivel !
+				if (anchoAct > anchoMax) 
+					anchoMax = anchoAct;
+				
+				if (!cola.isEmpty()) {
+					cola.enqueue(null);
+					anchoAct = 0;
+				}
+			}	
+		}
+		return anchoMax;
 	}
 }
