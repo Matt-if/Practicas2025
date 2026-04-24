@@ -51,7 +51,5 @@ public class ej4_AnalizadorArbol {
 		ej4_AnalizadorArbol test = new ej4_AnalizadorArbol();
 		
 		System.out.println(test.devolverMaximoPromedio(aGeneralesEjemplo.aGeneralIntegers_2()));
-
-
 	}
 }

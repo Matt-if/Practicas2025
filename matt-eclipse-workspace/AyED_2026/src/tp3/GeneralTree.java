@@ -124,10 +124,31 @@ public class GeneralTree<T>{
 	}
 	// =================================== ejercicio 5 =================================== 
 	
+	private GeneralTree<T> buscarNodo (GeneralTree<T> ab, T dato) {
+		GeneralTree<T> nodo = null;
+		
+		if (ab.getData().equals(dato))
+			return ab;
+		else {
+			Iterator<GeneralTree<T>> it = ab.getChildren().iterator();
+			while (nodo == null && it.hasNext()) {
+				nodo = this.buscarNodo(it.next(), dato);
+			}
+		}
+		
+		return nodo;
+	}
+		
 	// devuelve true si el valor “a” es ancestro del valor “b”.
 	public boolean esAncestro(T a, T b) {
 		
-		return false;
+		GeneralTree<T> nodoA = buscarNodo(this, a);
+		GeneralTree<T> nodoB = null;
+		if (nodoA != null) {
+			nodoB = buscarNodo(nodoA, b);
+		}
+		
+		return nodoB != null;
 	}
 	
 	// =================================== Metodos del ejercicio 3 =================================== 
