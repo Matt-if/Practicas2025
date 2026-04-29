@@ -8,6 +8,11 @@ public class ej7_Caminos {
 	GeneralTree<Integer> arbol;
 	
 	
+	public ej7_Caminos(GeneralTree<Integer> arbol) {
+		super();
+		this.arbol = arbol;
+	}
+
 	/* Nota: cuando manejamos el armado de listas, en general el mismo nodo que se agrega a si mismo,
 	 * 	luego de recorrer sus hijos va a eliminarse de la lista actual. Obviamente hay exepciones
 	 * pero son bastante pocas.
@@ -33,6 +38,21 @@ public class ej7_Caminos {
 	
 	private void recorridoPre (GeneralTree<Integer> arbol, List<Integer> caminoAct, List<Integer> caminoMax) {
 		
+		caminoAct.add(arbol.getData());
+		
+		if (arbol.isLeaf()) {
+			if (caminoAct.size() > caminoMax.size()) {
+				caminoMax.clear();
+				caminoMax.addAll(caminoAct);
+			}
+		}
+		else {
+			for (GeneralTree<Integer> child : arbol.getChildren()) {
+				this.recorridoPre(child, caminoAct, caminoMax);
+			}
+		}
+		
+		caminoAct.remove(caminoAct.size() - 1); // fundamental el back tracking
 	}
 	
 	// Retorne el camino a la hoja más lejana. 
@@ -41,9 +61,15 @@ public class ej7_Caminos {
 		List <Integer> caminoMax = new ArrayList <Integer>(); 
 		List <Integer> caminoAct = new ArrayList <Integer>(); 
 		
-		this.recorridoPre(this.arbol, caminoAct, caminoMax);
+		if (this.arbol != null && !this.arbol.isEmpty())		
+			this.recorridoPre(this.arbol, caminoAct, caminoMax);
 		
 		return caminoMax;
 	}
 
+	public static void main (String [] args) {
+		
+		ej7_Caminos test = new ej7_Caminos(aGeneralesEjemplo.aGeneralIntegers_2());
+		System.out.println(test.caminoAHojaMasLejana());
+	}
 }

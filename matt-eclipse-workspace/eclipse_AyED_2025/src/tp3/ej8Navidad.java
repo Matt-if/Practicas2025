@@ -11,9 +11,14 @@ public class ej8Navidad {
 		super();
 		this.ab = ab;
 	}
-
-	//Esto es incorrecto, preguntar por el valor de los hijos es estar recorriendo. 
-	//Entonces estamos recorriendo dos veces
+	/*
+	 * Contexto: Llamaremos abeto a un árbol si cada vértice no hoja tiene al menos 3 hijos hojas. 
+	 * Dado un árbol general, compruebe si es un abeto.
+	
+	---> NOTA DESDE 2026: Las siguientes dos lineas son por respuesta de un ayudante en el 2025..., y el codigo estaba perfecto !!
+	Esto es incorrecto, preguntar por el valor de los hijos es estar recorriendo. 
+	Entonces estamos recorriendo dos veces
+	*/
 	private boolean recorrido_Version_Viejas (GeneralTree <Integer> a) {
 		int cantHojas = 0;
 		boolean soyAbeto = true;
@@ -35,6 +40,9 @@ public class ej8Navidad {
 
 	}
 
+	/* ---> NOTA DESDE 2026: este recorrido es una MIERDA !!! es increible que un ayudante me haya dicho que el anterior esta mal porque 
+	 "preguntar por hijo es como recorrer 2 veces". Es 10000 veces mas eficiente el algoritmo en pre-orden que pregunta por los hijos !!!! 
+	*/
 	private boolean recorrido (GeneralTree <Integer> a) {
 		int cantHojas = 0;
 		boolean esAbeto = true;
@@ -47,8 +55,8 @@ public class ej8Navidad {
 		while (esAbeto && it.hasNext()) {
 			GeneralTree<Integer> nodo = it.next();
 			esAbeto = this.recorrido(nodo);
-			if (esAbeto) cantHojas++;
-			
+			if (esAbeto) 
+				cantHojas++;
 		}
 		
 		if (cantHojas < 3) 

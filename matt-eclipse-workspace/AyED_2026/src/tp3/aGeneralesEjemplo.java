@@ -5,6 +5,13 @@ import java.util.List;
 
 public class aGeneralesEjemplo {
 	
+	/*					  0 
+	 * 				/	  |		  \
+	 * 			  1	      2			 3
+	 * 				  /   |   \		 |    \
+	 * 				21   22   23 	31    32
+	 */
+	
 	public static GeneralTree<String> aGeneralStrings_1 () {
 		GeneralTree<String> a1 = new GeneralTree<String>("1");
 		List<GeneralTree<String>> children2 = new LinkedList<GeneralTree<String>>();
