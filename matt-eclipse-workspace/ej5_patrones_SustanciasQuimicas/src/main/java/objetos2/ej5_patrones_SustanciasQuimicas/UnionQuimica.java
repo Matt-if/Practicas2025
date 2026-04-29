@@ -8,16 +8,14 @@ public class UnionQuimica extends ElementoQuimico{
 
 	private List<ElementoQuimico> elementos;
 	
-	public UnionQuimica(ElementoQuimico elem1, ElementoQuimico elem2) {
+	public UnionQuimica(List<ElementoQuimico> elementos) {
 		
-		this.metal = elem1.metal || elem2.metal;
+		this.elementos = new ArrayList<ElementoQuimico>(elementos);
 		
-		this.carga = elem1.carga + elem2.carga;
-		this.pesoMolecular = elem1.pesoMolecular + elem2.pesoMolecular; 
-		this.simbolo = elem1.simbolo + elem2.simbolo;
-		
-		elementos = new ArrayList<ElementoQuimico>(List.of(elem1, elem2));
-		
+	}
+
+	public boolean soyMetal () {
+		return this.elementos.stream().anyMatch(e -> e.soyMetal());
 	}
 	
 	@Override
@@ -28,22 +26,27 @@ public class UnionQuimica extends ElementoQuimico{
 
 	@Override
 	public boolean agregarElementoQuimico(ElementoQuimico elem) {
-
 		
 		if (this.esValida(elem)) {
-			this.pesoMolecular += elem.pesoMolecular;
-			this.carga += elem.carga;
-			this.simbolo += elem.simbolo;
 			return elementos.add(elem);
 		}
 		
 		return false;
 	}
 	
-	@Override
+
 	public String formula() {
 		return this.elementos.stream()
                 .map(ElementoQuimico::formula)
                 .collect(Collectors.joining());
+	}
+
+	public Integer pesoMolecular() {
+		return this.elementos.stream().mapToInt(e -> e.pesoMolecular()).sum();
+	}
+
+	@Override
+	public Integer carga() {
+		return this.elementos.stream().mapToInt(e -> e.carga()).sum();
 	}
 }
