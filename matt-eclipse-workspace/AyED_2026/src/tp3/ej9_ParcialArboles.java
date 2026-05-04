@@ -16,7 +16,6 @@ public class ej9_ParcialArboles {
 	 *  "Si yo soy menor"
 	 */
 	
-	
 	private static boolean esDeSel (GeneralTree<Integer> ab) {
 		int min = Integer.MAX_VALUE;
 		boolean cumple = true, cumplenHijos = false;
@@ -46,7 +45,6 @@ public class ej9_ParcialArboles {
 		
 		return esDeSel(arbol);
 	}
-	
 	
 	public static void main(String[] args) {
 		System.out.println(ej9_ParcialArboles.esDeSeleccion(aGeneralesEjemplo.aGeneralIntegers_1()));
