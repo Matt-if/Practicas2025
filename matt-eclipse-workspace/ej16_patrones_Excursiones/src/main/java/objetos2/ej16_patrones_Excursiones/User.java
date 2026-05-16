@@ -14,4 +14,18 @@ public class User {
 	public void inscribirme(Excursion ex) {
 		
 	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public String getApe() {
+		return ape;
+	}
+
+	public String getMail() {
+		return mail;
+	}
+	
+	
 }

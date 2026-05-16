@@ -5,17 +5,17 @@ public class ProvisoriaState extends ExcursionState {
 	// Sin temrinar porque depende implementacion de las listas.
 	
 	@Override
-	public void handleInscripcion(Excursion ex, User u) {
-		// TODO Auto-generated method stub
-
+	public ExcursionState handleInscripcion(Excursion ex, User u) {
+		ex.getInscriptos().add(u);
+		
+		if (ex.getInscriptos().size() == ex.getCupoMin())
+			return new DefinitivaState();
+		
+		return this;
 	}
 	
-	private String faltantesParaCupoMinimo(Excursion ex) {
-		return "";
-	}
-	
-	public String info (Excursion ex) {
-		return super.info(ex) + faltantesParaCupoMinimo(ex); 
+	public String infoParticularPorEstado (Excursion ex) {
+		return String.valueOf(ex.faltantesParaMinimo()); 
 	}
 
 }

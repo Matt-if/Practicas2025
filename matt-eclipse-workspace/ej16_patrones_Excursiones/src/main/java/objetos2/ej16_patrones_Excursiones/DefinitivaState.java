@@ -5,17 +5,18 @@ public class DefinitivaState extends ExcursionState {
 	// Sin temrinar porque depende implementacion de las listas.
 	
 	@Override
-	public void handleInscripcion(Excursion ex, User u) {
-		// TODO Auto-generated method stub
-
+	public ExcursionState handleInscripcion(Excursion ex, User u) {
+		ex.getInscriptos().add(u);
+		
+		if (ex.getInscriptos().size() == ex.getCupoMax())
+			return new LlenaState();
+		
+		return this;
 	}
 	
-	private String mailsUsuariosInscriptos (Excursion ex) {
-		return "";
-	}
-	
-	public String info (Excursion ex) {
-		return super.info(ex) + mailsUsuariosInscriptos(ex); 
+	public String infoParticularPorEstado (Excursion ex) {
+		return ex.mailsDeInscriptos() + String.valueOf(ex.faltantesParaCupoMax()); 
+		
 	}
 
 }

@@ -1,19 +1,18 @@
 package objetos2.ej16_patrones_Excursiones;
 
-import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Excursion {
 	private String nombre, puntoEncuentro;
-	private Date fIni, fFin;
+	private LocalDateTime fIni, fFin;
 	private double costo;
 	private int cupoMin, cupoMax;
 	private ExcursionState state;
 	private List<User> inscriptos, espera;
 	
-	public Excursion(String nombre, String puntoEncuentro, Date fIni, Date fFin, double costo, int cupoMin,
-			int cupoMax) {
+	public Excursion(String nombre, int cupoMin, int cupoMax, String puntoEncuentro, LocalDateTime fIni, LocalDateTime fFin, double costo) {
 		super();
 		this.nombre = nombre;
 		this.puntoEncuentro = puntoEncuentro;
@@ -23,16 +22,29 @@ public class Excursion {
 		this.cupoMin = cupoMin;
 		this.cupoMax = cupoMax;
 		
+		state = new ProvisoriaState();
 		inscriptos = new ArrayList<User>();
 		espera = new ArrayList<User>();
 	}
 	
 	public void inscribirUsuario (User u) {
-		state.handleInscripcion(this, u);
+		this.state = state.handleInscripcion(this, u);
 	}
 	
 	public String obtenerInfo () {
-		return state.info(this);
+		return state.informacionCompletaPorEstado(this);
+	}
+	
+	public int faltantesParaMinimo() {
+		return this.cupoMin - inscriptos.size();
+	}
+	
+	public String mailsDeInscriptos () {
+		return inscriptos.stream().map(u -> u.getMail()).toString();
+	}
+	
+	public int faltantesParaCupoMax() {
+		return cupoMax - inscriptos.size();
 	}
 
 	public String getNombre() {
@@ -43,11 +55,11 @@ public class Excursion {
 		return puntoEncuentro;
 	}
 
-	public Date getfIni() {
+	public LocalDateTime getfIni() {
 		return fIni;
 	}
 
-	public Date getfFin() {
+	public LocalDateTime getfFin() {
 		return fFin;
 	}
 
@@ -63,12 +75,13 @@ public class Excursion {
 		return cupoMax;
 	}
 
-	public ExcursionState getState() {
-		return state;
+	public List<User> getInscriptos() {
+		return inscriptos;
 	}
-	
-	
-	
+
+	public List<User> getEspera() {
+		return espera;
+	}
 	
 	
 }
