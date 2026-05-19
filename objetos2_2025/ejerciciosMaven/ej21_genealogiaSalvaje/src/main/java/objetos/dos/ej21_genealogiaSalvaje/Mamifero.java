@@ -2,18 +2,23 @@ package objetos.dos.ej21_genealogiaSalvaje;
 
 import java.time.LocalDate;
 
-public class Mamifero {
+public class Mamifero implements MamiferoInterface{
 	private String Identificador;
 	private String Especie;
 	private LocalDate FechaNacimiento;
 	
-	private Mamifero Padre = new NullMamifero();
-	private Mamifero Madre = new NullMamifero();
+	private MamiferoInterface Padre;
+	private MamiferoInterface Madre;
 	
-	public Mamifero () {	}
+	public Mamifero () {
+		Padre = new NullMamifero();
+		Madre = new NullMamifero();
+	}
 	
 	public Mamifero (String nombre) {
 		Identificador = nombre;
+		Padre = new NullMamifero();
+		Madre = new NullMamifero();
 	}
 	
 	public String getIdentificador() {
@@ -40,7 +45,7 @@ public class Mamifero {
 		FechaNacimiento = fechaNacimiento;
 	}
 	
-	public Mamifero getPadre() {
+	public MamiferoInterface getPadre() {
 		return Padre;
 	}
 	
@@ -48,7 +53,7 @@ public class Mamifero {
 		Padre = padre;
 	}
 	
-	public Mamifero getMadre() {
+	public MamiferoInterface getMadre() {
 		return Madre;
 	}
 	
@@ -56,22 +61,22 @@ public class Mamifero {
 		Madre = madre;
 	}
 	
-	public Mamifero getAbueloMaterno () {
+	public MamiferoInterface getAbueloMaterno () {
 		
 		return Madre.getPadre(); //====> casos como este donde haria null check, se aprovecha NullObject
 	}
 	
-	public Mamifero getAbueloPaterno() {
+	public MamiferoInterface getAbueloPaterno() {
 		
 		return Padre.getPadre();
 	}
 	
-	public Mamifero getAbuelaMaterna() {
+	public MamiferoInterface getAbuelaMaterna() {
 		
 		return Madre.getMadre();
 	}
 	
-	public Mamifero getAbuelaPaterna() {
+	public MamiferoInterface getAbuelaPaterna() {
 		
 		return Padre.getMadre();
 	}
@@ -85,7 +90,7 @@ public class Mamifero {
 
 	}
 	
-	private Boolean buscar (Mamifero raiz, Mamifero unMamifero) {
+	private Boolean buscar (MamiferoInterface raiz, MamiferoInterface unMamifero) {
 
 		if (raiz == null) return false; 
 		
@@ -105,6 +110,4 @@ public class Mamifero {
 	 * 
 	 * 
 	 */
-	
-	
 }
