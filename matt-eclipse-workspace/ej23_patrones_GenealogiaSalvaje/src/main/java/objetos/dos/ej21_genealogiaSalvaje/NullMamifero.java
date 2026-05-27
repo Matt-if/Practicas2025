@@ -1,23 +1,24 @@
 package objetos.dos.ej21_genealogiaSalvaje;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 public class NullMamifero implements MamiferoInterface {
 
 	@Override
-	public Mamifero getPadre() {
-		return null;
+	public NullMamifero getPadre() {
+		return this;
 	}
 	
 	@Override
-	public Mamifero getMadre() {
-		return null;
+	public NullMamifero  getMadre() {
+		return this;
 	}
 
 	@Override
 	public String getIdentificador() {
 		// TODO Auto-generated method stub
-		return null;
+		return "";
 	}
 
 	@Override
@@ -29,7 +30,7 @@ public class NullMamifero implements MamiferoInterface {
 	@Override
 	public String getEspecie() {
 		// TODO Auto-generated method stub
-		return null;
+		return "";
 	}
 
 	@Override
@@ -38,10 +39,12 @@ public class NullMamifero implements MamiferoInterface {
 		
 	}
 
+	// Aca lo mas profesional seria que el metodo de la interfaz defina que el tipo devuelto sea Optional<LocalDate>, 
+	// entonces aca seria "return Optional.empty(); "
 	@Override
 	public LocalDate getFechaNacimiento() {
 		// TODO Auto-generated method stub
-		return null;
+		return LocalDate.MAX;
 	}
 
 	@Override
@@ -63,33 +66,33 @@ public class NullMamifero implements MamiferoInterface {
 	}
 
 	@Override
-	public Mamifero getAbueloMaterno() {
+	public NullMamifero getAbueloMaterno() {
 		// TODO Auto-generated method stub
-		return null;
+		return this;
 	}
 
 	@Override
-	public Mamifero getAbueloPaterno() {
+	public NullMamifero getAbueloPaterno() {
 		// TODO Auto-generated method stub
-		return null;
+		return this;
 	}
 
 	@Override
-	public Mamifero getAbuelaMaterna() {
+	public NullMamifero getAbuelaMaterna() {
 		// TODO Auto-generated method stub
-		return null;
+		return this;
 	}
 
 	@Override
-	public Mamifero getAbuelaPaterna() {
+	public NullMamifero getAbuelaPaterna() {
 		// TODO Auto-generated method stub
-		return null;
+		return this;
 	}
 
 	@Override
 	public Boolean tieneComoAncestroA(Mamifero unMamifero) {
 		// TODO Auto-generated method stub
-		return null;
+		return false;
 	}
 
 }
