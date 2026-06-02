@@ -82,6 +82,7 @@ public class BuscadorEnArrayOrdenado {
 
 		res = buscarDicotomico("Busqueda dicotomica valor:" + cantidadElementos, datos, cantidadElementos);
 		System.out.println(res);
+		System.out.printf("pepe se fue a la %s", res);
 	}
 
 }
